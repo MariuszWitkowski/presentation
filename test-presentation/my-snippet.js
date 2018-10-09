@@ -1,25 +1,3 @@
-import { Head } from 'mdx-deck'
-
-export { default as theme } from './theme'
-
-<Head>
-  <title>Presentation Title</title>
-</Head>
-
-# Hello
-
----
-
-## Edit this file
-
-To create your presentation
-
-```notes
-- Create speaker notes in fenced code blocks
-```
-
----
-
 import { CodeSurfer } from "mdx-deck-code-surfer"
 
 <CodeSurfer
@@ -35,7 +13,3 @@ import { CodeSurfer } from "mdx-deck-code-surfer"
     { tokens: { 9: [3, 4, 5] }, notes: "Note for the third step" }
   ]}
 />
-
----
-
-<https://github.com/jxnblk/mdx-deck>
