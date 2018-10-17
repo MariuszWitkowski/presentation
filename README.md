@@ -27,6 +27,7 @@ npm run build
 przykad budowania testowej prezenstaji
 ```sh
 npm run build -- -d=test-presentation\dist .\test-presentation\deck.mdx
+npm run build -- -d=uniformity-css\dist .\uniformity-css\deck.mdx
 ```
 
 To export a PDF:
