@@ -1,16 +1,16 @@
 {
   "private": true,
   "version": "1.0.0",
-  "description": "Deck created with mdx-deck",
+  "description": "Deck created with mdx-deck - author Brent Jackson",
   "scripts": {
-    "start": "mdx-deck deck.mdx",
-    "build": "mdx-deck build --no-html deck.mdx",
-    "pdf": "mdx-deck pdf deck.mdx",
-    "image": "mdx-deck screenshot deck.mdx",
+    "start": "mdx-deck",
+    "build": "mdx-deck build --no-html",
+    "pdf": "mdx-deck pdf",
+    "image": "mdx-deck screenshot",
     "help": "mdx-deck"
   },
   "keywords": [],
-  "author": "Brent Jackson",
+  "author": "Mariusz Witkowski",
   "license": "MIT",
   "devDependencies": {
     "mdx-deck": "^1.6.7",
