@@ -1,0 +1,266 @@
+import { Appear, Head } from 'mdx-deck'
+
+import CodeSurfer from "./tools/CodeSurfer"
+export { default as theme } from './tools/theme'
+// <div></div>
+
+<Head>
+  <title>Ujednolicenie css w projekcie</title>
+</Head>
+
+# Ujednolicenie css w projekcie
+
+---
+
+### Cel prezentacji
+
+<Appear>
+  <div>Ujednolicić css</div>
+  <div>Zmusić zespół do pracy w zespole</div>
+  <div>Ograniczyć wprowadzanie zmian na `hura`</div>
+</Appear>
+
+---
+
+### Kryteria wyboru stylowania
+
+<Appear>
+  <div>Jakiego sposobu/metodologi/frameworku używamy/<b>chcemy</b> użyć</div>
+  <div><b>Zalety</b> poszczególnych rozwiązań</div>
+  <div><b>Wady</b> poszczególnych rozwiązań</div>
+  <div>Jaka jest <b>przyszłość</b> tego rozwiązania?</div>
+  <div>Jak bardzo nas będzie bolało gdybyśmy chcieli <b>zmienić</b>?</div>
+  <div>W jaki sposób możemy to wykorzystać z Reactem, żeby usprawnić wdrożenie <b>nowych technologii</b> oraz spięcie z RN?</div>
+</Appear>
+
+---
+
+### Przedstawione rozwiązania
+
+<Appear>
+  <div>Metodologia CSS3</div>
+  <div> - OOCSS - </div>
+  <div> - BEM - </div>
+  <div>Framework dla css-in-js</div>
+  <div> - styled-components - </div>
+</Appear>
+
+---
+
+# OOCSS
+
+---
+
+*Object-oriented CSS (OOCSS) is a CSS methodology developed and promoted by Nicole Sullivan*
+
+---
+
+*The focus of OOCSS is the idea of treating page elements as objects, giving all these objects classes, treating objects’ classes as single entities in style sheets, and taking it from there.*
+
+---
+
+<CodeSurfer
+  title="OOCSS - css"
+  lang='css'
+  code={require("!raw-loader!./snippets/oocss.css")}
+  steps={[
+    {},
+    { range: [1, 9], notes: "Główny obiekt" },
+    { range: [11, 13], notes: "Rozszerzenie o 'primary'" },
+    { range: [15, 18], notes: "Rozszerzenie o 'cancel'" }
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="OOCSS - jsx"
+  code={require("!raw-loader!./snippets/oocss.js")}
+  steps={[
+    {},
+    { lines: [1], notes: "Import css" },
+    { range: [3, 8], notes: "JSX dla primary" },
+    { lines: [6] },
+    { range: [10, 15], notes: "JSX dla cancel" },
+    { lines: [13] },
+    { range: [17, 28], notes: "Wykorzystanie komponentów w kodzie" },
+    { range: [23, 24] }
+  ]}
+/>
+
+---
+
+## Zalety
+
+- separacja struktury
+- brak duplikacji kodu
+
+## Wady
+
+- Dużo definicji klas
+- Dlugie lańcuchy className
+
+---
+
+## Przyszlość OOCSS
+
+Nie widzę zastrzeżeń
+
+---
+
+## Jak bardzo nas będzie bolało gdybyśmy chcieli zmienić OOCSS?
+
+- Na wejściu wykorzystalibyśmy dużo pracy na stworzenie struktur
+- Takie struktury są dobrze/czytelnie napisane więc nie powinno być trudno je zmienić. 
+- Bardzo pracochlonne
+
+---
+
+# BEM
+
+---
+
+**BEM — Block Element Modifier** is a methodology that helps you to create reusable components and code sharing in front-end development
+
+---
+
+### Podzial elementów
+
+- **bloki** - na przykład formularz albo menu
+- **elementy** - poszczególne elementy bloku takie jak: input czy guzik formularza albo też link w menu
+- **modyfikatory** - specyficzne warianty elementów: input do wpisywania hasła, guzik “Anuluj” lub aktywny link w menu
+
+---
+
+### Konwencja nazewnicza
+
+- **.block** - pierwsze słowo w nazwie oznacza, że klasa dotyczy danego bloku
+- **__element** - słowo poprzedzone dwoma “podkreślnikami” oznacza, że dana klasa dotyczy danego elementu
+- **--modifier** - słowo poprzedzone dwoma myślnikami określa kasę będącą modyfikatorem
+
+---
+
+<CodeSurfer
+  title="BEM - css"
+  lang='css'
+  code={require("!raw-loader!./snippets/bem.css")}
+  steps={[
+    {},
+    { range: [1, 9], notes: "Element button" },
+    { range: [11, 13], notes: "Element 'btn primary'" },
+    { range: [15, 18], notes: "Element 'btn cancel'" }
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="BEM - jsx"
+  code={require("!raw-loader!./snippets/bem.js")}
+  steps={[
+    {},
+    { lines: [1], notes: "Import css" },
+    { range: [3, 8], notes: "JSX dla primary" },
+    { lines: [6] },
+    { range: [10, 15], notes: "JSX dla cancel" },
+    { lines: [13] },
+    { range: [17, 28], notes: "Wykorzystanie komponentów w kodzie" },
+    { range: [23, 24] }
+  ]}
+/>
+
+---
+
+### Zalety
+
+- Konwencja nazewnictwa
+- Plaski kod
+- Latwo zorientowac się czego dotyczy dana klasa
+
+### Wady
+
+- Duplikacja kodu na poziomie przez podzial na bloki
+- Dużo definicji klas
+- Dlugie lańcuchy className
+
+---
+
+## Przyszlość BEM
+
+Nie widzę zastrzeżeń
+
+---
+
+## Jak bardzo nas będzie bolało gdybyśmy chcieli zmienić BEM?
+
+- Bloki i elementy już mamy gotowe
+- Dużo pracy przy przepisywaniu
+
+---
+
+# styled-components
+
+---
+
+### styled-components
+
+Visual primitives for the component age.
+Use the best bits of ES6 and CSS to style your apps without stress 💅
+
+---
+
+<CodeSurfer
+  title="styled-components - jsx"
+  code={require("!raw-loader!./snippets/styled-components.js")}
+  steps={[
+    {},
+    { lines: [1], notes: "Import biblioteki" },
+    { range: [3, 11], notes: "Glówny komponent" },
+    { range: [13, 15], notes: "Primary rozszerza glówny button" },
+    { range: [17, 20], notes: "Cancel rozszerza glówny button" },
+    { range: [22, 33], notes: "Wykorzystanie komponentów w kodzie" },
+    { range: [28, 29] }
+  ]}
+/>
+
+---
+
+### Zalety
+
+- Piszemy w js 🤘
+- Mamy większą kontrolę nad stylami dzięki props 💪
+- Style są zawsze gotowe z komponentem 🙌
+
+### Wady
+
+- Piszemy w js 👃
+- Obciążamy event-loop w js przez co spowalniamy dzialanie aplikacji 🖕
+
+---
+
+## Przyszlość styled-components
+
+- Dzięki konkurencji (między innymi z emotion) biblioteka się szybko rozwija.
+- Na oko 95% rozwiązań które potrzebujemy już w sobie ma.
+
+---
+
+## Jak bardzo nas będzie bolało gdybyśmy chcieli zmienić styled-components?
+
+- Wydzielenie z js styli do oddzielnych plików
+- style są pisane w CSS3 bez camelCase więc przenoszenie to w większości copy-paste
+- problem jest dopiero z komponentami wykorzystującymi props
+
+---
+
+### Źródla
+
+https://www.nafrontendzie.pl/metodyki-css-1-oocss
+
+https://www.nafrontendzie.pl/metodyki-css-2-bem
+
+https://www.styled-components.com/
+
+---
+
+Dziękuję!
